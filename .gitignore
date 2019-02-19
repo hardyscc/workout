@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+.expo/
+node_modules/
+dist/
+build/
+temp/
+coverage/
+yarn-error.log
