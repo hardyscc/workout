@@ -15,7 +15,7 @@ npm -g install wml
 
 # Setup
 
-## setup auto build again common module
+## setup auto build against common module
 
 ```
 yarn install
