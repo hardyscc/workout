@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
+import React, { useContext } from "react";
 import { Button, Platform, StyleSheet, Text, View } from "react-native";
+import { CounterStoreContext } from "./stores/CounterStore";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -8,20 +10,19 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
-const App: React.FC = () => {
-  const [count, setCount] = useState(0);
+export const App = observer(() => {
+  const counterStore = useContext(CounterStoreContext);
+
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Welcome to React Native!</Text>
       <Text style={styles.instructions}>To get started, edit App.tsx</Text>
       <Text style={styles.instructions}>{instructions}</Text>
-      <Text style={styles.instructions}>{count}</Text>
-      <Button title="increase" onPress={() => setCount(count + 1)} />
+      <Text style={styles.instructions}>{counterStore.count}</Text>
+      <Button title="increase" onPress={() => counterStore.count++} />
     </View>
   );
-};
-
-export { App };
+});
 
 const styles = StyleSheet.create({
   container: {

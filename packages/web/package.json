@@ -34,8 +34,5 @@
   "devDependencies": {
     "@types/react-native": "0.55.4",
     "cross-env": "^5.2.0"
-  },
-  "prettier": {
-    "singleQuote": true
   }
 }

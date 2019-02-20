@@ -1,3 +1,3 @@
-import { App } from '@workout/common';
+import { App } from "@workout/common";
 
 export default App;
