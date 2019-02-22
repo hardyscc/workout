@@ -7,7 +7,6 @@ interface Props {}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fafafa",
     margin: 10
   }
 });
