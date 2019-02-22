@@ -12,7 +12,7 @@ export const WorkoutHistory: React.FC<Props> = observer(() => {
     <View>
       <Text>Workout History page</Text>
       <Button
-        title="create workout"
+        title="current workout"
         onPress={() => (routerStore.screen = "CurrentWorkout")}
       />
     </View>
