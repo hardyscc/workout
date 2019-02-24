@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { RouterStoreContext } from "../stores/RouterStore";
+import { RootStoreContext } from "../stores/RootStore";
 import { WorkoutCard } from "../ui/WorkoutCard";
 
 interface Props {}
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 });
 
 export const CurrentWorkout: React.FC<Props> = () => {
-  const routerStore = useContext(RouterStoreContext);
+  const rootStore = useContext(RootStoreContext);
 
   return (
     <View style={styles.container}>
@@ -24,7 +24,7 @@ export const CurrentWorkout: React.FC<Props> = () => {
       />
       <Button
         title="workout history"
-        onPress={() => (routerStore.screen = "WorkoutHistory")}
+        onPress={() => (rootStore.routerStore.screen = "WorkoutHistory")}
       />
     </View>
   );

@@ -30,14 +30,16 @@ const styles = StyleSheet.create({
     marginTop: 14
   },
   circle: {
-    borderRadius: 50,
-    backgroundColor: "#8FB299",
-    padding: 15
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#8FB299"
   },
   whiteText: {
     color: "#fff"
   },
   circleText: {
+    margin: "auto",
     fontSize: 16
   },
   grayText: {
