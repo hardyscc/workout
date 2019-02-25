@@ -1,25 +1,46 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Button, Text, View } from "react-native";
+import { RouteComponentProps } from "react-router";
 import { RootStoreContext } from "../stores/RootStore";
 
-interface Props {}
+interface Props extends RouteComponentProps {}
 
-const styles = StyleSheet.create({
-  container: {
-    margin: 10
-  }
-});
-
-export const WorkoutHistory: React.FC<Props> = observer(() => {
-  const rootStore = useContext(RootStoreContext);
+export const WorkoutHistory: React.FC<Props> = observer(({ history }) => {
+  const rootStore = React.useContext(RootStoreContext);
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Workout History page</Text>
       <Button
-        title="current workout"
-        onPress={() => (rootStore.routerStore.screen = "CurrentWorkout")}
+        title="create workout"
+        onPress={() => {
+          rootStore.workoutStore.currentExercises.push(
+            {
+              exercise: "Squat",
+              numSets: 5,
+              reps: 5,
+              sets: ["", "", "", "", ""],
+              weight: 260
+            },
+            {
+              exercise: "Bench Press",
+              numSets: 5,
+              reps: 5,
+              sets: ["5", "5", "5", "5", "5"],
+              weight: 200
+            },
+            {
+              exercise: "Deadlift",
+              numSets: 1,
+              reps: 5,
+              sets: ["5", "x", "x", "x", "x"],
+              weight: 360
+            }
+          );
+
+          history.push("/current-workout");
+        }}
       />
     </View>
   );
